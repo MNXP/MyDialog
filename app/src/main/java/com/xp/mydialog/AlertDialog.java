@@ -60,6 +60,10 @@ public class AlertDialog {
         return this;
     }
 
+    /**
+     * 恢复初始
+     * @return
+     */
     public AlertDialog setGone() {
         if (lLayout_bg != null) {
             txt_title.setVisibility(View.GONE);
@@ -76,6 +80,11 @@ public class AlertDialog {
         return this;
     }
 
+    /**
+     * 设置title
+     * @param title
+     * @return
+     */
     public AlertDialog setTitle(String title) {
         showTitle = true;
         if (TextUtils.isEmpty(title)) {
@@ -86,6 +95,11 @@ public class AlertDialog {
         return this;
     }
 
+    /**
+     * 设置Message
+     * @param msg
+     * @return
+     */
     public AlertDialog setMsg(String msg) {
         showMsg = true;
         if (TextUtils.isEmpty(msg)) {
@@ -96,6 +110,11 @@ public class AlertDialog {
         return this;
     }
 
+    /**
+     * 设置点击外部是否消失
+     * @param cancel
+     * @return
+     */
     public AlertDialog setCancelable(boolean cancel) {
         dialog.setCancelable(cancel);
         return this;
@@ -130,7 +149,7 @@ public class AlertDialog {
             public void onClick(View v) {
                 if (listener != null)
                     listener.onClick(v);
-                dialog.dismiss();
+                dismiss();
             }
         });
         return this;
@@ -168,12 +187,15 @@ public class AlertDialog {
             public void onClick(View v) {
                 if (listener != null)
                     listener.onClick(v);
-                dialog.dismiss();
+                dismiss();
             }
         });
         return this;
     }
 
+    /**
+     * 设置显示
+     */
     private void setLayout() {
         if (!showTitle && !showMsg) {
             txt_title.setText("");
@@ -195,7 +217,7 @@ public class AlertDialog {
             btn_pos.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dialog.dismiss();
+                    dismiss();
                 }
             });
         }
@@ -235,6 +257,9 @@ public class AlertDialog {
     }
 
     public void dismiss() {
-        dialog.dismiss();
+        if (dialog!=null){
+            dialog.dismiss();
+        }
+
     }
 }
