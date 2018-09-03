@@ -27,7 +27,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 myDialog.setGone().setMsg("仿iOS的弹窗").setPositiveButton("确定",null).show();
                 break;
             case R.id.show_title:
-                myDialog.setGone().setTitle("提示").setMsg("仿iOS的弹窗").setNegativeButton("取消",null).setPositiveButton("确定",null).show();
+                myDialog.setGone().setTitle("提示").setMsg("仿iOS的弹窗").setNegativeButton("取消",null).setPositiveButton("确定", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                }).show();
                 break;
         }
     }
